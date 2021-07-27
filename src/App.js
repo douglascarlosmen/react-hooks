@@ -1,7 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+  
+  const [value, setValue] = useState(0)
+
+  useEffect(() => {
+    document.title = `Valor: ${value}`;
+  })
+
   return (
     <div className="App">
       <header className="App-header">
@@ -16,8 +24,10 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
-      </header>
+        </a>     
+        <h1>Valor: {value}</h1>   
+        <button onClick={() => setValue(value + 1)}>Incrementar Valor</button>
+      </header>      
     </div>
   );
 }
